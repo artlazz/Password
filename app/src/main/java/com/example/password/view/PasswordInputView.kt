@@ -81,7 +81,7 @@ class PasswordInputView @JvmOverloads constructor(
             if (btnVisibility) {
                 btnNumberForgot.visibility = View.VISIBLE
             } else {
-                btnNumberForgot.visibility = View.GONE
+                btnNumberForgot.visibility = View.INVISIBLE
             }
 
             btnNumberForgot.text = btnTitle
