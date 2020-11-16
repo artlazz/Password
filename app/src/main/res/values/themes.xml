@@ -20,6 +20,10 @@
         <item name="strokeColor">@color/btn_background_grey</item>
         <item name="android:inset">0dp</item>
         <item name="android:gravity">center</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
         <item name="backgroundTint">@color/btn_background_grey</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Button.Circle</item>
 
@@ -31,7 +35,7 @@
     </style>
 
     <style name="Button.Password.Input.Number.Forgot" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
         <item name="strokeColor">@color/btn_background_white</item>
         <item name="backgroundTint">@color/btn_background_white</item>
         <item name="android:textColor">@color/text_color_black</item>

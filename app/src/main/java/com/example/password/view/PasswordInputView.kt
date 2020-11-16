@@ -30,6 +30,7 @@ class PasswordInputView @JvmOverloads constructor(
 
     private var password: String = ""
     private var listener: OnPasswordInteractionListener? = null
+    private val animationDuration = 10L
 
     private val ivPointNumber1: ImageView
     private val ivPointNumber2: ImageView
@@ -115,10 +116,10 @@ class PasswordInputView @JvmOverloads constructor(
         password += number
         changePointColor(password.length, true)
 
-        if (password.length == 4) {
-            listener?.onEnter(password)
-            clearPass()
-        }
+//        if (password.length == 4) {
+//            listener?.onEnter(password)
+//            clearPass()
+//        }
     }
 
     private fun changePointColor(paintedCount: Int, animate: Boolean) {
@@ -261,11 +262,15 @@ class PasswordInputView @JvmOverloads constructor(
     }
 
     private fun animateView(view: View) {
-        view.animate()?.scaleXBy(0.08f)?.scaleYBy(0.08f)?.setDuration(100)
+        view.animate()?.scaleXBy(0.08f)?.scaleYBy(0.08f)?.setDuration(animationDuration)
             ?.withEndAction {
-                view.animate()?.scaleXBy(-0.08f)?.scaleYBy(-0.08f)?.setDuration(100)
+                view.animate()?.scaleXBy(-0.08f)?.scaleYBy(-0.08f)?.setDuration(animationDuration)
                     ?.withEndAction {
                         enableButtons()
+                        if (password.length == 4) {
+                            listener?.onEnter(password)
+                            clearPass()
+                        }
                     }
             }
         blockButtons()
@@ -316,4 +321,5 @@ class PasswordInputView @JvmOverloads constructor(
         fun onEnter(password: String)
         fun onForgot()
     }
+
 }
